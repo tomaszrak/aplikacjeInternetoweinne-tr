@@ -1,0 +1,91 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a ui-sref="app.main" class="navbar-brand">Aplikacje Internetowe</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Back-end
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li ui-sref-active="active" data-ng-click="clickTime()">
+              <a ui-sref="app.back-end-get-data">Pobieranie danych z serwera</a>
+            </li>
+            <li ui-sref-active="active">
+              <a ui-sref="app.back-end-load-data">Ładowanie danych</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Local storage
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li ui-sref-active="active" data-ng-click="clickTime()">
+              <a ui-sref="app.local-storage-get-data">Pobieranie danych z local storage</a>
+            </li>
+            <li ui-sref-active="active">
+              <a ui-sref="app.local-storage-load-data">Ładowanie danych</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Paginacja
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li ui-sref-active="active">
+              <a ui-sref="app.pagination-get-data">Pobieranie danych z serwera</a>
+            </li>
+            <li ui-sref-active="active">
+              <a ui-sref="app.pagination-load-data">Ładowanie danych</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li data-ng-show="authenticationFactory.loggedUser !== null">
+          <a>Witaj {{authenticationFactory.loggedUser}}!</a>
+        </li>
+        <li>
+          <a ui-sref="app.shopping-cart">Koszyk
+            <span class="label label-pill label-danger" data-ng-show="shoppingFactory.shoppingArray.length > 0">
+              {{shoppingFactory.shoppingArray.length}}
+            </span>
+          </a>
+        </li>
+        <li data-ng-show="authenticationFactory.loggedUser === null" ui-sref-active="active">
+          <a ui-sref="app.login">Zaloguj się</a>
+        </li>
+        <li data-ng-show="authenticationFactory.loggedUser === null" ui-sref-active="active">
+          <a ui-sref="app.registration">Zarejestruj się</a>
+        </li>
+        <li data-ng-show="authenticationFactory.loggedUser === 'admin'" ui-sref-active="active">
+          <a ui-sref="app.user-list">Lista użytkowników</a>
+        </li>
+        <li data-ng-show="authenticationFactory.loggedUser === 'admin'" ui-sref-active="active">
+          <a ui-sref="app.settings">Ustawienia</a>
+        </li>
+        <li data-ng-show="authenticationFactory.loggedUser !== null">
+          <a href="" data-ng-click="logout()">Wyloguj się</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>

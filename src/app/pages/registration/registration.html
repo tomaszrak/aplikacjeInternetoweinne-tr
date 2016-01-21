@@ -1,0 +1,82 @@
+<navbar></navbar>
+
+<div class="container standard-position">
+    <form class="form-horizontal" name="registrationForm" novalidate>
+        <fieldset>
+
+            <legend>Rejestracja</legend>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="username">Nazwa użytkownika</label>
+                <div class="col-md-4">
+                    <input id="username" name="username" placeholder="Nazwa użytkownika" class="form-control input-md" type="text"
+                           data-ng-model="userData.username" ng-minlength="3" ng-maxlength="32" required data-ng-change="change(userData.username)">
+                    <div ng-show="registrationForm.$submitted || registrationForm.username.$touched">
+                        <div role="alert">
+                            <span class="label label-danger" ng-show="registrationForm.username.$error.minlength">Nazwa użytkownika jest za krótka(min 3 znaki)</span>
+                        </div>
+                        <div role="alert">
+                            <span class="label label-danger" ng-show="registrationForm.username.$error.maxlength">Nazwa użytkownika jest za długa(max 32 znaki)</span>
+                        </div>
+                        <div role="alert">
+                            <span class="label label-danger" ng-show="registrationForm.username.$error.required">To pole jest wymagane</span>
+                        </div>
+                        <div role="alert">
+                            <span class="label label-danger" ng-show="registrationForm.username.$error.usernameExists">Podana nazwa użytkownika już istnieje</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="password">Hasło</label>
+                <div class="col-md-4">
+                    <input id="password" name="password" placeholder="Hasło" class="form-control input-md" type="password"
+                           data-ng-model="userData.password" ng-minlength="6" ng-maxlength="32" required>
+                    <div ng-show="registrationForm.$submitted || registrationForm.password.$touched">
+                        <div role="alert">
+                            <span class="label label-danger" ng-show="registrationForm.password.$error.minlength">Hasło jest za krótkie (min 6 znaki)</span>
+                        </div>
+                        <div role="alert">
+                            <span class="label label-danger" ng-show="registrationForm.password.$error.maxlength">Hasło jest za długie (max 32 znaki)</span>
+                        </div>
+                        <div role="alert">
+                            <span class="label label-danger" ng-show="registrationForm.password.$error.required">To pole jest wymagane</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="confirmPassword">Potwierdź hasło</label>
+                <div class="col-md-4">
+                    <input id="confirmPassword" name="confirmPassword" placeholder="Potwierdź hasło" class="form-control input-md" type="password"
+                               data-ng-model="userData.confirmPassword" match="userData.password" required>
+                    <div ng-show="registrationForm.$submitted || registrationForm.confirmPassword.$touched">
+                        <div role="alert">
+                            <span class="label label-danger" ng-show="registrationForm.confirmPassword.$error.match &&
+                            !registrationForm.confirmPassword.$error.required">Podane hasła różnią się od siebie</span>
+                        </div>
+                        <div role="alert">
+                            <span class="label label-danger" ng-show="registrationForm.confirmPassword.$error.required">To pole jest wymagane</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="registrationButton"></label>
+                <div class="col-md-4">
+                    <button id="registrationButton" name="registrationButton" class="btn btn-primary" data-ng-click="register(userData, registrationForm)">Zarejestruj się</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+
+<footer class="footer navbar-fixed-bottom">
+  <div class="container">
+    <p>Zaprojektował: Damian Jarosz Grupa L02</p>
+  </div>
+</footer>

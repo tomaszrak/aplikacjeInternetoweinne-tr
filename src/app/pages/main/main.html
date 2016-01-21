@@ -1,0 +1,42 @@
+<navbar></navbar>
+
+<section class="col-md-10 standard-position">
+  <div ng-repeat="(zone, list) in models.dropzones">
+    <div class="dropzone">
+      <div ng-include="'list.html'"></div>
+    </div>
+  </div>
+</section>
+
+<aside class="col-md-2 navbar-fixed-top">
+  <div class="trashcan">
+    <ul dnd-list="[]" dnd-allowed-types="['itemType']">
+      <li><img src="app/pages/main/shopping-cart.png"></li>
+    </ul>
+  </div>
+</aside>
+
+<footer class="footer navbar-fixed-bottom">
+  <div class="container">
+    <p>Zaprojektował: Damian Jarosz Grupa L02</p>
+  </div>
+</footer>
+
+<script type="text/ng-template" id="list.html">
+  <ul dnd-list="list" dnd-allowed-types="[]">
+    <li ng-repeat="item in list"
+        dnd-draggable="item"
+        dnd-effect-allowed="copy"
+        dnd-type="'itemType'"
+        dnd-copied="addToShoppingCart(item)"
+        ng-include="item.type + '.html'">
+    </li>
+  </ul>
+</script>
+
+<script type="text/ng-template" id="item.html">
+  <div>
+    <div class="col-md-11 border-style-name">{{item.name}}</div>
+    <div class="col-md-1 border-style-price">{{item.price}}</div>
+  </div>
+</script>

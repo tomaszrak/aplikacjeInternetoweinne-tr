@@ -1,0 +1,64 @@
+<navbar></navbar>
+
+<div class="container standard-position">
+    <mc-messages></mc-messages>
+
+    <form class="form-horizontal" name="changePasswordForm" novalidate>
+        <fieldset>
+
+            <legend>Zmień hasło</legend>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="newPassword">Nowe hasło</label>
+                <div class="col-md-4">
+                    <input id="newPassword" name="newPassword" placeholder="Nowe hasło" class="form-control input-md" type="password"
+                           data-ng-model="adminData.newPassword" ng-minlength="6" ng-maxlength="32" required>
+                    <div ng-show="changePasswordForm.$submitted || changePasswordForm.newPassword.$touched">
+                        <div role="alert">
+                            <span class="label label-danger" ng-show="changePasswordForm.newPassword.$error.minlength">Hasło jest za krótkie (min 6 znaki)</span>
+                        </div>
+                        <div role="alert">
+                            <span class="label label-danger" ng-show="changePasswordForm.newPassword.$error.maxlength">Hasło jest za długie (max 32 znaki)</span>
+                        </div>
+                        <div role="alert">
+                            <span class="label label-danger" ng-show="changePasswordForm.newPassword.$error.required">To pole jest wymagane</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="confirmNewPassword">Potwierdź nowe hasło</label>
+                <div class="col-md-4">
+                    <input id="confirmNewPassword" name="confirmNewPassword" placeholder="Potwierdź nowe hasło"
+                           class="form-control input-md" type="password" data-ng-model="adminData.confirmNewPassword" match="adminData.newPassword" required>
+                    <div ng-show="changePasswordForm.$submitted || changePasswordForm.confirmNewPassword.$touched">
+                        <div role="alert">
+                            <span class="label label-danger" ng-show="changePasswordForm.confirmNewPassword.$error.match &&
+                            !changePasswordForm.confirmNewPassword.$error.required">Podane hasła różnią się od siebie</span>
+                        </div>
+                        <div role="alert">
+                            <span class="label label-danger" ng-show="changePasswordForm.confirmNewPassword.$error.required">To pole jest wymagane</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="changePasswordButton"></label>
+                <div class="col-md-4">
+                    <button type="button" id="changePasswordButton" name="changePasswordButton" class="btn btn-primary" data-ng-click="changePassword(changePasswordForm, adminData)">Zmień hasło</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>
+
+<footer class="footer navbar-fixed-bottom">
+  <div class="container">
+    <p>Zaprojektował: Damian Jarosz Grupa L02</p>
+  </div>
+</footer>
