@@ -1,0 +1,35 @@
+{
+  "name": "app",
+  "version": "0.0.0",
+  "dependencies": {
+    "jquery": "~1.11.3",
+    "angular-resource": "~1.4.0",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.4",
+    "angular-bootstrap": "~0.13.0",
+    "angular": "~1.4.0",
+    "angular-validation-match": "latest",
+    "underscore": "latest",
+    "angular-sanitize": "~1.4.2",
+    "message-center": "latest",
+    "angular-local-storage": "latest",
+    "angular-drag-and-drop-lists": "latest",
+    "mdi": "latest",
+    "angular-utils-pagination": "latest"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.0"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  },
+  "resolutions": {
+    "jquery": "~1.11.3",
+    "angular": "~1.4.0"
+  }
+}
