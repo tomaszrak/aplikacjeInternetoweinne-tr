@@ -1,0 +1,55 @@
+<navbar></navbar>
+
+<div class="col-md-12 standard-position" data-ng-show="timer !== null">
+  <p>Dane zostały wczytane po {{timer}} sekundy.</p>
+</div>
+
+<dir-pagination-controls class="col-md-5" data-ng-class="{'pagination-style': timer === null}"
+                         on-page-change="pageChanged(newPageNumber)">
+</dir-pagination-controls>
+<div class="col-md-4 standard-position left-correnction" data-ng-class="{'bottom-correction': timer !== null}">
+  <div class="col-md-7">
+    <label>Liczba elementów na stronie:</label>
+  </div>
+  <div class="col-md-5">
+    <input type="number" min="1" max="totalItems" class="form-control"
+           data-ng-change="setItemsPerPage(itemsPerPage)"ng-model="itemsPerPage">
+  </div>
+</div>
+
+<section class="col-md-10" data-ng-class="{'correction': (itemsPerPage === NaN || itemsPerPage === null) && timer === null}">
+  <div ng-repeat="(zone, list) in models.dropzones">
+    <div class="dropzone">
+      <div ng-include="'list.html'"></div>
+    </div>
+  </div>
+</section>
+
+<aside class="col-md-2 navbar-fixed-top">
+  <div class="trashcan">
+    <ul dnd-list="[]" dnd-allowed-types="['itemType']">
+      <li><img src="app/pages/main/shopping-cart.png"></li>
+    </ul>
+  </div>
+</aside>
+
+<footer class="footer navbar-fixed-bottom">
+  <div class="container">
+    <p>Zaprojektował: Damian Jarosz Grupa L02</p>
+  </div>
+</footer>
+
+<script type="text/ng-template" id="list.html">
+  <ul dnd-list="list" dnd-allowed-types="[]">
+    <li dir-paginate="item in list | itemsPerPage: itemsPerPage" total-items="totalItems"
+        dnd-draggable="item"
+        dnd-effect-allowed="copy"
+        dnd-type="'itemType'"
+        dnd-copied="addToShoppingCart(item)" data-ng-init="init()">
+      <div>
+        <div class="col-md-11 border-style-name">{{item.name}}</div>
+        <div class="col-md-1 border-style-price">{{item.price}}</div>
+      </div>
+    </li>
+  </ul>
+</script>

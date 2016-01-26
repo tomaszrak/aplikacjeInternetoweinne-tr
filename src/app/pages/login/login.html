@@ -1,0 +1,47 @@
+<navbar></navbar>
+
+<div class="container standard-position">
+  <mc-messages></mc-messages>
+    <form class="form-horizontal" name="loginForm" novalidate>
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Logowanie</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="username">Nazwa użytkownika</label>
+                <div class="col-md-4">
+                    <input id="username" name="username" placeholder="Nazwa użytkownika" class="form-control input-md" type="text"
+                           data-ng-model="loginData.username" maxlength="32" required>
+                </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="password">Hasło</label>
+                <div class="col-md-4">
+                    <input id="password" name="password" placeholder="Hasło" class="form-control input-md" type="password"
+                           data-ng-model="loginData.password" maxlength="32" required>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="loginButton"></label>
+                <div class="col-md-4">
+                    <button id="loginButton" name="loginButton" class="btn btn-primary" data-ng-click="login(loginData, loginForm)">Zaloguj się</button>
+                    Nie posiadasz konta? <a ui-sref="app.registration">Zarejestruj się</a>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>
+
+<footer class="footer navbar-fixed-bottom">
+  <div class="container">
+    <p>Zaprojektował: Damian Jarosz Grupa L02</p>
+  </div>
+</footer>

@@ -1,0 +1,101 @@
+ul[dnd-list],
+ul[dnd-list] > li {
+  position: relative;
+  height: 47px;
+}
+
+.dropzone ul[dnd-list] {
+  min-height: 5px;
+  margin: 0px;
+  padding-left: 0px;
+}
+
+.dropzone li {
+  display: block;
+  padding: 0px;
+}
+
+.dropzone .dndDragging {
+  opacity: 0.7;
+}
+
+.dropzone .dndDraggingSource {
+  display: none;
+}
+
+.border-style-name {
+  border: solid 1px;
+  padding: 10px;
+}
+
+.border-style-price {
+  border-bottom: solid 1px;
+  border-top: solid 1px;
+  border-right: solid 1px;
+  padding: 10px;
+  text-align: center;
+}
+
+.trashcan ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.trashcan img {
+  width: 136px;
+  position: fixed;
+  top: 70px;
+  right: 20px;
+}
+
+.trashcan .dndPlaceholder {
+  display: none;
+}
+
+footer {
+  background-color: #0088cc;
+  height: 50px;
+  text-align: center;
+  width:100%;
+  font-weight: 700;
+  padding: 15px;
+  color: black;
+}
+
+.button-danger-position {
+  position: absolute;
+  top: 3px;
+}
+
+.label-pill {
+  border-radius: 100%;
+}
+
+.standard-position {
+  padding-top: 70px;
+}
+
+.navbar {
+  z-index: 9999;
+}
+
+.pagination-style {
+  margin-top: 50px;
+}
+
+.left-correnction {
+  margin-left: 127px;
+}
+
+.correction {
+  margin-top: 25px;
+}
+
+.bottom-correction {
+  bottom: 50px;
+  margin-bottom: -25px;
+}
+
+.border-style-name {
+  margin-bottom: 5px;
+}

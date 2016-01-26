@@ -1,0 +1,19 @@
+<navbar></navbar>
+
+<section class="col-md-10 standard-position">
+  <h3 data-ng-show="shoppingFactory.shoppingArray.length > 0">Twoje zakupy</h3>
+  <h3 data-ng-show="shoppingFactory.shoppingArray.length === 0">Twój koszyk jest pusty</h3>
+  <div data-ng-repeat="item in shoppingFactory.shoppingArray track by $index">
+    <div class="col-md-10 border-style-name">{{item.name}}</div>
+    <div class="col-md-1 border-style-price">{{item.price}}</div>
+    <div class="col-md-1">
+      <button type="button" class="btn btn-danger button-danger-position" data-ng-click="deleteItem(item)">Usuń</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer navbar-fixed-bottom">
+  <div class="container">
+    <p>Zaprojektował: Damian Jarosz Grupa L02</p>
+  </div>
+</footer>
